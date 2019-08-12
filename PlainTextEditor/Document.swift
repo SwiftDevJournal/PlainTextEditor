@@ -10,6 +10,8 @@ import Cocoa
 
 class Document: NSDocument {
 
+    var contents = ""
+    
     var viewController: ViewController? {
         return windowControllers.first?.contentViewController as? ViewController
     }
@@ -33,7 +35,7 @@ class Document: NSDocument {
     override func data(ofType typeName: String) throws -> Data {
         // Save the text view contents to disk
         if let textView = viewController?.textView {
-            let contents = textView.string
+            contents = textView.string
             return contents.data(using: .utf8) ?? Data()
         }
         throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
