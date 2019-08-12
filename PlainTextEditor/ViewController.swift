@@ -18,6 +18,13 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear() {
+        // Fill the text view with the document's contents.
+        if let document = self.view.window?.windowController?.document as? Document {
+            textView.string = document.contents
+        }
+    }
+    
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
