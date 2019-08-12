@@ -11,7 +11,7 @@ import Cocoa
 class Document: NSDocument {
 
     var viewController: ViewController? {
-        return windowControllers.first as? ViewController
+        return windowControllers.first?.contentViewController as? ViewController
     }
     
     override init() {
